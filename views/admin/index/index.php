@@ -1,6 +1,14 @@
-# ElementAdministration
+<?php
 
-An Omeka plugin that allows site administrators to have more control of the "Add/Edit an Item" forms.
+/**
+ * @package ElementAdministration
+ * @author Joe Corall <jcorall@kent.edu>
+ */
+
+echo head($head);
+echo flash();
+
+?>
 
 For each metadata element in the system, you can set:
 <ul>
@@ -37,23 +45,24 @@ For each metadata element in the system, you can set:
   </li>-->
 </ul>
 
+<table>
+  <tbody>
+    <?php while ($element = $elements->fetchObject()): ?>
+        <?php if ($element->set_name !== $current_element_set): ?>
+            <tr>
+              <th>
+                <?php echo $element->set_name; ?>
+                <?php $current_element_set = $element->set_name; ?>
+              </th>
+            </tr>
+        <?php endif; ?>
+        <tr>
+          <td>
+            <a href="<?php echo url("element-administration/index/edit/id/{$element->id}");?>"><?php echo $element->name; ?></a>
+          </td>
+        </tr>
+    <?php endwhile; ?>
+  </tbody>
+</table>
 
-## Installation
-
-Clone this repository in your Omeka "plugins" directory.
-
-```
-git clone https://github.com/kent-state-university-libraries/ElementAdministration.git
-```
-
-After the repository is checkout out, you will need to login to Omeka and enable
-the plugin.
-
-
-## Configuration
-
-Click the "Element Administration" found in your admin menu, and edit every element you want to add some extra settings to.
-
-------
-
-Developed by the [Kent State University Libraries](http://www.library.kent.edu).
+<?php echo foot(); ?>
