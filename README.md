@@ -14,15 +14,15 @@ For each metadata element in the system, you can set:
   </li>
   <li>
     <strong>Required</strong> -
-    <span>Make this element required in the "Add/Edit an Item" forms</span>
+    <span>Make this element required in the "Add/Edit an Item" forms.</span>
   </li>
   <li>
     <strong>Allow HTML</strong> -
-    <span>Control whether to display the "HTML" checkbox for this element</span>
+    <span>Control whether to display the "HTML" checkbox for this element.</span>
   </li>
   <li>
     <strong>Allow Multiple Values</strong> -
-    <span>Control whether to display the "Add Input" button for this element</span>
+    <span>Control whether to display the "Add Input" button for this element.</span>
   </li>
   <li>
     <strong>Public Label</strong> -
@@ -52,8 +52,8 @@ the plugin.
 
 ## Configuration
 
-Click the "Element Administration" found in your admin menu, and edit every element you want to add some extra settings to.
+Click the "Element Administration" link found in your admin menu, and edit every element you want to add some extra settings to.
 
 ------
 
-Developed by the [Kent State University Libraries](http://www.library.kent.edu).
+Developed by [Kent State University Libraries](http://www.library.kent.edu).
