@@ -115,11 +115,10 @@ class ElementAdministrationPlugin extends Omeka_Plugin_AbstractPlugin
     public function hookBeforeSaveItem($args)
     {
         $item = $args['record'];
-        foreach ($this->_required_elements as $elementSetName => $elements) {
-            foreach ($elements as $elementId => $elementName) {
-                if (strlen($item->Elements[$id][0]['text']) === 0) {
-                    $item->addError($label, "$label is required");
-                }
+
+        foreach ($this->_settings as $id => $setting) {
+            if (!empty($setting->required) && strlen($item->Elements[$id][0]['text']) === 0) {
+                $item->addError($setting->name, "{$setting->name} is required");
             }
         }
     }

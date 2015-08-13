@@ -2,7 +2,7 @@
 
 /**
  * @package ElementAdministration
- * @author jcorall@kent.edu
+ * @author Joe Corall jcorall@kent.edu
  */
 
 class ElementAdministration_EditForm extends Omeka_Form
