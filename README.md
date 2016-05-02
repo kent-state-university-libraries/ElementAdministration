@@ -33,7 +33,6 @@ For each metadata element in the system, you can set:
     <span>Override the label shown to the public for this element.</span>
   </li>
   <li>
-  <li>
     <strong>Hidden on Item Edit Form</strong> -
     <span>Don't show this item on the public site.</span>
   </li>
