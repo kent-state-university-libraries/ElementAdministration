@@ -9,6 +9,10 @@ For each metadata element in the system, you can set:
     <span>Override the label shown in the "Add/Edit an Item" forms.</span>
   </li>
   <li>
+    <strong>Hidden on Item Edit Form/strong> -
+    <span>Don't show this item on the admin item edit form.</span>
+  </li>
+  <li>
     <strong>Default Value</strong> -
     <span>Set a default value for this element in the "Add an Item" form.</span>
   </li>
@@ -27,14 +31,19 @@ For each metadata element in the system, you can set:
   <li>
     <strong>Public Label</strong> -
     <span>Override the label shown to the public for this element.</span>
-  </li><!--
+  </li>
+  <li>
+  <li>
+    <strong>Hidden on Item Edit Form/strong> -
+    <span>Don't show this item on the public site.</span>
+  </li>
   <li>
     <strong>Brief Display</strong> -
     <span>Show this element in the "Brief Display" view of on your public item view.
       If no elements are selected for "Brief Display", all elements will be shown.
       If one or more are selected, a button will appear for this Element Set allowing users to view "Brief" or "Full" record displays
     </span>
-  </li>-->
+  </li>
 </ul>
 
 

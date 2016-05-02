@@ -58,7 +58,15 @@ For each metadata element in the system, you can set:
         <?php endif; ?>
         <tr>
           <td>
-            <a href="<?php echo url("element-administration/index/edit/id/{$element->id}");?>"><?php echo $element->name; ?></a>
+            <a href="<?php echo url("element-administration/index/edit/id/{$element->id}");?>">
+              <?php echo $element->name; ?>
+              <?php if ($element->has_settings):?>
+              <?php if (strlen($element->overridden_label)): ?>
+                (<?php echo $element->overridden_label; ?>)
+              <?php endif; ?>
+                *
+              <?php endif; ?>
+            </a>
           </td>
         </tr>
     <?php endwhile; ?>

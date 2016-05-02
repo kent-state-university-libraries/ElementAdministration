@@ -7,9 +7,9 @@
 
 class Table_ElementAdministrationSettings extends Omeka_Db_Table
 {
-    public function findByElementId($id)
+    public function findByElementId($id, $collection_id = 0)
     {
-        $select = $this->getSelect()->where('id = ?', $id);
+        $select = $this->getSelect()->where('id = ?', $id)->where('collection_id = ?', $collection_id);
         return $this->fetchObject($select);
     }
 }
