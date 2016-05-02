@@ -9,7 +9,7 @@ For each metadata element in the system, you can set:
     <span>Override the label shown in the "Add/Edit an Item" forms.</span>
   </li>
   <li>
-    <strong>Hidden on Item Edit Form/strong> -
+    <strong>Hidden on Item Edit Form</strong> -
     <span>Don't show this item on the admin item edit form.</span>
   </li>
   <li>
@@ -34,7 +34,7 @@ For each metadata element in the system, you can set:
   </li>
   <li>
   <li>
-    <strong>Hidden on Item Edit Form/strong> -
+    <strong>Hidden on Item Edit Form</strong> -
     <span>Don't show this item on the public site.</span>
   </li>
   <li>
