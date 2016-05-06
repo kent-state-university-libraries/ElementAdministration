@@ -127,7 +127,9 @@ class ElementAdministration_EditForm extends Omeka_Form
                     break;
                 }
               }
-              $elements[] = $$element;
+              if (isset($$element)) {
+                  $elements[] = $$element;
+              }
           }
           $this->addElements($elements);
       }
