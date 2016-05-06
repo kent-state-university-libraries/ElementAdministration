@@ -13,12 +13,14 @@
         }
       });
     });
-    $('#multicollections-form input[type="checkbox"]').on('change', function() {
+    $('#multicollections-form input[type="checkbox"], #collection-id').on('change', function() {
       var collection_id = $('#multicollections-form input:checked').val();
       if (typeof(collection_id) == 'undefined') {
-        collection_id = 0;
+        collection_id = $('#collection-id').val();
+        if (collection_id == '' || typeof(collection_id) == 'undefined') {
+          collection_id = 0;
+        }
       }
-
       $('div[id^="element-"]').show();
       $('div[id^="element-"] .alpha label.override').remove();
       $('div[id^="element-"] .alpha label .required').remove();
@@ -84,6 +86,7 @@
     });
     setTimeout(function() {
       $('#multicollections-form input[type="checkbox"]').last().change()
+      $('#collection-id').change();
     }, 1000);
   });
 })(jQuery);
