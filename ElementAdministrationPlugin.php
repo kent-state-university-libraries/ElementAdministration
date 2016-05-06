@@ -14,7 +14,7 @@ if (!defined('ELEMENT_ADMINISTRATION_DIR')) {
 class ElementAdministrationPlugin extends Omeka_Plugin_AbstractPlugin
 {
     protected $_hooks = array(
-        'before_save_item',
+        'after_save_collection',
         'define_acl',
         'initialize',
         'install',
@@ -96,6 +96,48 @@ class ElementAdministrationPlugin extends Omeka_Plugin_AbstractPlugin
         if (strpos($_SERVER['REQUEST_URI'], '/admin/items/') !== FALSE) {
             queue_js_string('if (!Omeka) {var Omeka = {};}Omeka.element_administration = ' . json_encode($this->_settings) . ';');
             queue_js_url(url('plugins/ElementAdministration/views/admin/javascripts/items.js'));
+        }
+    }
+
+
+    public function hookAfterSaveCollection($args)
+    {
+
+        // if creating a new collection
+        if (!empty($args['insert'])) {
+            // get all settings for "All Collections"
+            $db = $this->_db;
+            $table = $db->getTable('ElementAdministrationSettings');
+            $select = $table->getSelect()->where('collection_id = 0');
+            $element_settings = $table->fetchObjects($select);
+
+            // add each setting for this new collection
+            foreach ($element_settings as $setting) {
+                // this will be the database record inserted
+                // make the collection ID the new collection being added
+                $insert = array(
+                    'collection_id' => $args['record']->id,
+                );
+
+                // copy over all the element admin settings to this new record
+                $properties = array(
+                    'id',
+                    'required',
+                    'multiple',
+                    'html',
+                    'brief_display',
+                    'form_label',
+                    'hidden_form',
+                    'hidden_public',
+                    'public_label',
+                    'default_value'
+                );
+                foreach ($properties as $property) {
+                    $insert[$property] = $setting->{$property};
+                }
+
+                $db->insert('ElementAdministrationSettings', $insert);
+            }
         }
     }
 
